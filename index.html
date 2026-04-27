@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNADV - Advocacia Patrimonial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#c5a16d', // Dourado do botão e logo
+                            goldHover: '#a38458',
+                            dark: '#0a0a0a',
+                            card: 'rgba(255, 255, 255, 0.05)'
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="inicio" class="bg-brand-dark text-white font-sans antialiased">
+
+    <header
+        class="fixed w-full z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 text-brand-gold">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold tracking-widest text-brand-gold uppercase">MNADV</span>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre</a>
+                <a href="#areas" class="hover:text-brand-gold transition-colors">Áreas</a>
+                <a href="#metodo" class="hover:text-brand-gold transition-colors">Método</a>
+                <a href="#contato" class="hover:text-brand-gold transition-colors">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#"
+                    class="hidden md:flex bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-5 py-2 rounded-full text-sm font-bold items-center gap-2 transition-all shadow-lg shadow-brand-gold/20">
+                    Falar no WhatsApp
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+
+                <!-- Botão Menu Hamburger Mobile -->
+                <button id="mobileMenuBtn" class="md:hidden text-brand-gold p-2 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-md border-b border-white/5">
+            <nav class="flex flex-col px-6 py-6 gap-4 text-base font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre</a>
+                <a href="#areas" class="hover:text-brand-gold transition-colors">Áreas</a>
+                <a href="#metodo" class="hover:text-brand-gold transition-colors">Método</a>
+                <a href="#contato" class="hover:text-brand-gold transition-colors">Contato</a>
+
+                <a href="#"
+                    class="mt-4 bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-5 py-3 rounded-full text-base font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-brand-gold/20">
+                    Falar no WhatsApp
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden bg-hero-pattern">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <line x1="0" y1="100" x2="100" y2="0" stroke="white" stroke-width="0.1" />
+                <line x1="20" y1="100" x2="120" y2="0" stroke="white" stroke-width="0.1" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8">
+                <h1 class="text-4xl md:text-6xl font-semibold leading-tight">
+                    Organize seu patrimônio em vida. <br>
+                    <span class="text-brand-gold italic">Regras claras.</span> <br>
+                    <span class="text-brand-gold">Menos atrito.</span>
+                </h1>
+
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
+                    Atuação técnica em <span class="text-white font-medium">Família, Societário e seus Reflexos
+                        Tributários</span>, para estruturar governança e reduzir riscos de conflito, sempre nos limites
+                    da lei.
+                </p>
+
+                <div class="pt-4">
+                    <a href="#"
+                        class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-8 py-4 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-xl shadow-brand-gold/20">
+                        Agendar conversa inicial
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center">
+                <div class="relative w-full max-w-xs md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+                    <img src="assets/images/advogado_1.webp" alt="Márcio Nogueira"
+                        class="w-full h-auto drop-shadow-2xl animate-float rounded-[18px]">
+
+                    <div class="absolute bottom-20 -left-4 glass-label p-3 rounded-xl flex items-center gap-3">
+                        <div class="text-brand-gold">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold">Márcio Nogueira</p>
+                            <p class="text-[10px] text-gray-400 uppercase tracking-tighter">OAB/BA 99.999</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-10 right-0 glass-label p-3 rounded-xl flex items-center gap-3">
+                        <div class="text-brand-gold">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold">Holding Familiar</p>
+                            <p class="text-[10px] text-gray-400 uppercase">Seu legado seguro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="relative py-24 overflow-hidden bg-[#f4f4f4]">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-[800px] h-[800px] bg-black/5 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative z-10 group">
+            <div id="carousel"
+                class="flex gap-6 overflow-x-auto pb-12 px-6 no-scrollbar snap-x snap-mandatory scroll-smooth">
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_1_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md">
+                </div>
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_2_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md border-2 border-white/20">
+                </div>
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_3_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md">
+                </div>
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_4_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md">
+                </div>
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_5_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md">
+                </div>
+                <div class="flex-none w-[280px] sm:w-[420px] md:w-[600px] aspect-video snap-center">
+                    <img src="assets/images/escritorio_6_1.webp" alt="Escritório"
+                        class="w-full h-full object-cover rounded-2xl shadow-md">
+                </div>
+            </div>
+
+            <!-- Setas de navegação -->
+            <button id="prevBtn"
+                class="absolute left-4 top-1/2 -translate-y-1/2 -mt-6 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden md:flex items-center justify-center focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="nextBtn"
+                class="absolute right-4 top-1/2 -translate-y-1/2 -mt-6 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden md:flex items-center justify-center focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center mt-12">
+            <h2 class="text-4xl font-semibold text-[#444444] mb-8">Sobre Nós:</h2>
+
+            <p class="text-lg md:text-xl text-[#666666] leading-relaxed">
+                Fundado em 2010, o <span class="font-bold text-[#333333]">MN ADV</span> nasceu com uma premissa
+                simples:
+                <span class="font-bold text-[#333333]">proximidade real com o cliente para transformar questões
+                    patrimoniais complexas em decisões claras</span>.
+                Nosso método privilegia a troca ágil de informações entre advogado, família e contabilidade, tudo
+                para reduzir atritos,
+                encurtar caminhos e dar previsibilidade ao que foi combinado.
+            </p>
+        </div>
+        </div>
+    </section>
+
+    <section id="areas" class="bg-[#0a0a0a] py-24 relative overflow-hidden">
+
+        <div
+            class="absolute top-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_0%_0%,rgba(197,161,109,0.15)_0%,transparent_70%)] pointer-events-none">
+        </div>
+
+        <div class="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] pointer-events-none opacity-20">
+            <div class="absolute inset-0 border-[1px] border-brand-gold rounded-full scale-100"></div>
+            <div class="absolute inset-12 border-[1px] border-brand-gold rounded-full scale-95"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start relative z-10">
+
+            <div class="space-y-6">
+                <h2 class="text-4xl font-semibold text-brand-gold tracking-tight">
+                    Áreas de Atuação:
+                </h2>
+                <div class="space-y-6 text-gray-300">
+                    <p class="text-xl leading-relaxed font-medium text-white/90">
+                        Organizamos patrimônio em vida unindo Família e Sucessões ao Societário aplicado à família. Com
+                        análise e economia tributária.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-400">
+                        Essas são as frentes em que atuamos para dar regras claras e prevenir impasses nas heranças,
+                        sempre em conformidade com a lei e as normas da OAB.
+                    </p>
+                </div>
+            </div>
+            <div class="divide-y divide-white/10">
+
+                <div class="flex items-start gap-6 py-8 first:pt-0">
+                    <div class="text-brand-gold shrink-0 mt-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Holding Familiar</h3>
+                        <p class="text-gray-400 text-sm leading-snug">Desenho societário, governança e regras de
+                            quotas/ações; Alinhamento jurídico e contábil.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6 py-8">
+                    <div class="text-brand-gold shrink-0 mt-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white leading-tight">Planejamento <br> Sucessório &
+                            Patrimonial</h3>
+                        <p class="text-gray-400 text-sm leading-snug">Regras de transmissão e administração em vida;
+                            protocolos familiares; testamentos; doações com cláusulas (usufruto, incomunicabilidade,
+                            inalienabilidade, reversão), conforme o caso.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6 py-8">
+                    <div class="text-brand-gold shrink-0 mt-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Acordos de Sócios & Governança Familiar</h3>
+                        <p class="text-gray-400 text-sm leading-snug">Definição de papéis, quóruns, sucessão em
+                            participações e prevenção de impasses.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6 py-8 last:pb-0">
+                    <div class="text-brand-gold shrink-0 mt-1">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 11v2m0 0v2m0-2h2m-2 0H10"></path>
+                        </svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Reflexos Tributários <br> (ITCMD/ITD etc.)</h3>
+                        <p class="text-gray-400 text-sm leading-snug">Levantamento de bens/títulos, diagnóstico jurídico
+                            e diretrizes para uma boa guarda documental.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo" class="bg-[#0a0a0a] py-24 relative overflow-hidden">
+
+        <div
+            class="absolute -right-20 top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 hidden md:block">
+            <div class="absolute inset-0 border border-brand-gold rounded-full"></div>
+            <div class="absolute inset-20 border border-brand-gold rounded-full"></div>
+            <div class="absolute inset-0 bg-brand-gold/5 blur-[120px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+
+            <div class="space-y-10">
+                <h2 class="text-4xl font-semibold text-white tracking-tight">Como Trabalhamos:</h2>
+
+                <div class="space-y-4">
+                    <div
+                        class="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-300 hover:border-brand-gold/30 hover:bg-white/[0.06] shadow-2xl">
+                        <h3 class="text-brand-gold font-bold text-lg mb-2 transition-colors group-hover:text-white">
+                            Entendimento</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Conversa técnica para objetivos familiares, composição e perfil patrimonial.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-300 hover:border-brand-gold/30 hover:bg-white/[0.06] shadow-2xl">
+                        <h3 class="text-brand-gold font-bold text-lg mb-2 transition-colors group-hover:text-white">
+                            Análise</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Estudo jurídico (civil, societário e reflexos tributários) e opções possíveis.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-300 hover:border-brand-gold/30 hover:bg-white/[0.06] shadow-2xl">
+                        <h3 class="text-brand-gold font-bold text-lg mb-2 transition-colors group-hover:text-white">
+                            Estruturação</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Redação e revisão de documentos/atos; interface com cartórios e juntas comerciais, quando
+                            necessário.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-300 hover:border-brand-gold/30 hover:bg-white/[0.06] shadow-2xl">
+                        <h3 class="text-brand-gold font-bold text-lg mb-2 transition-colors group-hover:text-white">
+                            Acompanhamento</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Ajustes pontuais e revisões periódicas diante de eventos familiares/societários e mudanças
+                            normativas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center md:justify-end">
+                <div class="relative w-full max-w-md z-10">
+                    <img src="assets/images/contrato_1.webp" alt="Documentação Técnica"
+                        class="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.8)] rounded-[18px]">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="profissional" class="bg-[#0a0a0a] py-24 relative overflow-hidden">
+
+        <div
+            class="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_100%_0%,rgba(197,161,109,0.1)_0%,transparent_70%)] pointer-events-none">
+        </div>
+
+        <div
+            class="max-w-5xl mx-auto px-6 grid md:grid-cols-[auto,1fr] gap-12 md:gap-16 items-center justify-center relative z-10">
+
+            <div class="flex justify-center">
+                <div class="relative w-full max-w-sm rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+                    <img src="assets/images/adv_profissional_1.webp" alt="Márcio Nogueira" class="w-full h-auto object-cover">
+                </div>
+            </div>
+
+            <div class="space-y-8 text-gray-300">
+                <div class="space-y-3">
+                    <div
+                        class="inline-flex items-center border border-white/10 px-4 py-1 rounded-full text-[10px] tracking-widest text-gray-400 uppercase">
+                        Quem conduz o seu planejamento
+                    </div>
+                    <h2 class="text-5xl font-bold text-white tracking-tight">Márcio Nogueira</h2>
+                </div>
+
+                <div class="space-y-6 text-base leading-relaxed">
+                    <p>
+                        Com uma trajetória consolidada no cenário jurídico nacional, Márcio Nogueira <span
+                            class="text-brand-gold font-medium">acumula décadas de experiência na proteção de legados
+                            familiares e estruturação de holdings, com especializações voltadas à gestão estratégica de
+                            ativos e preservação de capital</span>.
+                    </p>
+                    <p>
+                        Sua atuação é reconhecida pela capacidade de integrar soluções jurídicas robustas à inteligência
+                        financeira, garantindo que a transição patrimonial ocorra com a máxima eficiência tributária e
+                        segurança jurídica.
+                    </p>
+                    <p>
+                        Pautado pela discrição e excelência técnica, ele <span
+                            class="text-brand-gold font-medium">prioriza um atendimento personalizado para construir
+                            estruturas que asseguram a harmonia familiar e a continuidade dos negócios para as próximas
+                            gerações</span>.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" class="relative py-24 overflow-hidden bg-[#f4f4f4]">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50">
+            <div class="w-[600px] h-[600px] border border-black/5 rounded-full"></div>
+            <div class="absolute w-[900px] h-[900px] border border-black/5 rounded-full"></div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr,1.5fr] gap-12 lg:gap-20 items-center justify-center relative z-10">
+
+            <div class="space-y-8 md:pl-8 lg:pl-16">
+                <h2 class="text-4xl font-semibold text-brand-gold">Sede e <br> atendimento:</h2>
+
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-gold mt-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 text-lg leading-snug">
+                            Av. Paulista, 1578 - Bela Vista, <br>
+                            São Paulo - SP, 01310-200
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="text-brand-gold">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <a href="mailto:contato@exemplo.com.br"
+                            class="text-gray-600 text-lg hover:text-brand-gold transition-colors">contato@exemplo.com.br</a>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-gold mt-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <div class="text-gray-600 text-lg font-medium">
+                            <p>(11) 99999-8888</p>
+                            <p>(11) 3333-0000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a href="#"
+                        class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-goldHover text-white px-6 py-3 rounded-full text-sm font-bold transition-all shadow-lg shadow-brand-gold/20">
+                        Falar no WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative md:pr-8 lg:pr-16">
+                <div class="w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.148766746813!2d-46.65874258502219!3d-23.56239128468249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7b4819d45%3A0xe54e60bcaf172ebb!2sAv.%20Paulista%2C%201578%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!5e0!3m2!1spt-BR!2sbr!4v1689620581452!5m2!1spt-BR!2sbr"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="depoimentos" class="relative py-24 overflow-hidden bg-[#f9f9f9]">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-[700px] h-[700px] border border-black/[0.03] rounded-full"></div>
+            <div class="absolute w-[1000px] h-[1000px] border border-black/[0.03] rounded-full"></div>
+        </div>
+
+        <div class="relative z-10 group">
+            <div class="max-w-7xl mx-auto px-6 text-center mb-16 space-y-2">
+                <span class="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">Depoimentos Reais</span>
+                <h2 class="text-3xl md:text-4xl font-semibold text-[#333333]">O que nossos clientes <br
+                        class="md:hidden"> estão dizendo:</h2>
+            </div>
+
+            <!-- Wrapper do Carrossel (Full Width) -->
+            <div class="relative">
+                <div id="depoimentosCarousel"
+                    class="flex gap-8 overflow-x-auto pb-12 px-6 no-scrollbar snap-x snap-mandatory scroll-smooth">
+
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "O Dr. Márcio conseguiu traduzir termos jurídicos complexos para a nossa realidade
+                                familiar. Hoje temos a segurança de que nosso patrimônio está blindado e as regras de
+                                sucessão estão claras para todos os herdeiros."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Ricardo Silveira"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Ricardo Silveira</p>
+                                <p class="text-sm text-gray-400">Empresário - Salvador/BA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "A estruturação da nossa Holding Familiar reduziu drasticamente os atritos que tínhamos
+                                na gestão dos bens. O atendimento foi impecável e muito técnico, focando exatamente na
+                                nossa necessidade contábil."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Maria Eduarda"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Maria Eduarda</p>
+                                <p class="text-sm text-gray-400">Produtora Rural - Barreiras/BA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "Estávamos preocupados com o ITCMD e a sucessão de sócios na empresa. O planejamento
+                                sucessório entregue foi cirúrgico, economizando tempo e evitando futuros processos
+                                judiciais desgastantes."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Joaquim Martins"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Joaquim Martins</p>
+                                <p class="text-sm text-gray-400">Arquiteto - São Paulo/SP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "O profissionalismo e a ética do Dr. Márcio nos deram a paz que precisávamos para
+                                organizar o legado da nossa família. O método de trabalho dele é direto ao ponto e muito
+                                previsível."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Ana Cláudia"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Ana Cláudia</p>
+                                <p class="text-sm text-gray-400">Consultora - Feira de Santana/BA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Novos Cards -->
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "A organização da nossa empresa sempre foi um ponto delicado. Com o aconselhamento da
+                                MNadv, implementamos um acordo de sócios que trouxe transparência e tranquilidade para
+                                todos os envolvidos."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Carlos Eduardo"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Carlos Eduardo</p>
+                                <p class="text-sm text-gray-400">Diretor Comercial - São Paulo/SP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex-none w-[320px] md:w-[480px] lg:w-[520px] bg-white p-10 rounded-[2rem] shadow-sm snap-center flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <div class="text-brand-gold">
+                                <svg class="w-12 h-12 opacity-60" fill="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766zm10.5 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L19.873 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.833 1.607 1.25 2.612 1.25.7 0 1.355-.192 1.965-.576.61-.384 1.034-.96 1.272-1.724.167-.532.25-1.12.25-1.766z" />
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 text-lg leading-relaxed italic">
+                                "Profissionais extremamente capacitados. O cuidado que tiveram com os detalhes do nosso
+                                patrimônio familiar foi um diferencial. Sentimos uma confiança imensa no trabalho
+                                entregue."
+                            </p>
+                        </div>
+                        <div class="mt-10 flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                alt="Juliana Peixoto"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-brand-gold/20 flex-shrink-0">
+                            <div>
+                                <p class="font-bold text-[#333333] text-lg">Juliana Peixoto</p>
+                                <p class="text-sm text-gray-400">Médica - Brasília/DF</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Setas de navegação Depoimentos -->
+                <button id="prevDepBtn"
+                    class="absolute left-6 top-[40%] bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden md:flex items-center justify-center focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="nextDepBtn"
+                    class="absolute right-6 top-[40%] bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 hidden md:flex items-center justify-center focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#0a0a0a] py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="bg-[#111111] rounded-[2rem] border border-white/5 overflow-hidden shadow-2xl relative">
+                <div class="grid md:grid-cols-2 items-center">
+
+                    <div class="p-10 md:p-16 space-y-6">
+                        <h2 class="text-3xl md:text-4xl font-semibold leading-tight text-white">
+                            Regras combinadas hoje. <br>
+                            <span class="text-brand-gold">Sem improvisos</span> no amanhã.
+                        </h2>
+                        <p class="text-gray-400 text-base md:text-lg max-w-sm">
+                            Conversa inicial para entender objetivos e mapear cenários. Análise jurídica personalizada.
+                        </p>
+                        <div class="pt-4">
+                            <a href="#"
+                                class="inline-flex items-center gap-3 bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-8 py-4 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-xl shadow-brand-gold/20">
+                                Agendar conversa inicial
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="relative h-64 md:h-full min-h-[300px] flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-white/5 skew-x-[-15deg] translate-x-20"></div>
+
+                        <div class="relative z-10 w-full max-w-md px-10">
+                            <img src="assets/images/familia_1.webp" alt="Plataforma Digital"
+                                class="w-full h-auto drop-shadow-2xl rounded-lg object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a0a0a] pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+                <div class="flex items-start gap-4 max-w-xs">
+                    <div class="text-brand-gold shrink-0">
+                        <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-snug">
+                        <span class="text-white font-medium">20 anos de experiência</span> transformando planejamento em
+                        segurança.
+                    </p>
+                </div>
+
+                <a href="#inicio"
+                    class="text-gray-400 hover:text-brand-gold flex items-center gap-2 text-sm transition-colors group">
+                    <svg class="w-4 h-4 transform group-hover:-translate-y-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                    Voltar ao topo
+                </a>
+            </div>
+
+            <div class="h-px bg-white/5 w-full mb-8"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-gray-500 text-[11px] space-y-1 text-center md:text-left">
+                    <p>© 2026 MN ADV - Patrimonial e Empresarial - CNPJ: xx.xxx.xxx/xxxx-xx</p>
+                    <p>Todos os direitos reservados. - Feito por: <span class="text-gray-300">Wenilton Web</span></p>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:border-brand-gold/50 transition-all text-gray-400 hover:text-brand-gold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

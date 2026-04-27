@@ -1,0 +1,21 @@
+.glass-label {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bg-hero-pattern {
+    background-image: linear-gradient(to right, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.7)), url('../assets/images/SUA_IMAGEM_DE_FUNDO_ESCRITORIO.jpg'); /* adjusted path just in case */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Esconder barra de rolagem mas manter funcionalidade */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
